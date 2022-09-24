@@ -1,0 +1,80 @@
+﻿@using Entity.Concrete
+@model List<Arama>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_UILayout.cshtml";
+}
+<link rel="stylesheet" href="~/mazer/assets/extensions/simple-datatables/style.css">
+<link rel="stylesheet" href="~/mazer/assets/css/pages/simple-datatables.css">
+<div class="page-title">
+    <div class="row">
+        <div class="col-12 col-md-6 order-md-1 order-last">
+            <h3>Aramalar</h3>
+            
+        </div>
+        <div class="col-12 col-md-6 order-md-2 order-first">
+            <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">DataTable</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
+<section class="section">
+    <div class="card">
+        <div class="card-header">
+            Simple Datatable
+        </div>
+        <div class="card-body">
+            <table class="table table-striped" id="table1">
+                <thead>
+                    <tr>
+                        <th>Arama Önceliği</th>
+                        <th>Arayan Ünvanı</th>
+                        <th>İsim</th>
+                        <th>Konu</th>
+                        <th>Telefon</th>
+                        <th>Ziyaret Edilen</th>
+                        <th>Başlangıç-Bitiş</th>
+                        <th>Oluşturan</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        
+                    
+                    <tr>
+                        <td>
+                            @if (item.AramaTipi.Arama_tipi == "Acil"){ <span class="badge bg-danger">@item.AramaTipi.Arama_tipi</span> }
+                               else { <span class="badge bg-warning">@item.AramaTipi.Arama_tipi</span> }    
+                        </td>
+                        <td>@item.ArayanTipi.Arayan_tipi</td>
+                        <td>@item.Ad</td>
+                        <td>@item.Konu</td>
+                        <td>@item.Tel</td>
+                        <td>@item.Aranan.Name</td>
+                        <td>@item.Aranma_Zamanı</td>
+                        <td>@item.Kaydeden.Name</td>
+                         <td>
+                            <a href="~/Arama/DeleteArama/@item.Arama_id"><span class="badge bg-danger">Sil</span></a>
+                        </td>
+                        <td>
+                            <a href="~/Arama/UpdateArama/@item.Arama_id"><span class="badge bg-info">Güncelle</span></a>
+                        </td>
+                    </tr>
+                    
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</section>
+
+
+    <script src="~/mazer/assets/extensions/simple-datatables/umd/simple-datatables.js"></script>
+    <script src="~/mazer/assets/js/pages/simple-datatables.js"></script>

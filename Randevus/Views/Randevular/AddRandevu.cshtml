@@ -1,0 +1,166 @@
+﻿@model Entity.Concrete.Randevular
+@{
+    ViewData["Title"] = "RandevuEkle";
+    Layout = "~/Views/Shared/_UILayout.cshtml";
+}
+
+<!-- Basic Vertical form layout section start -->
+<section id="basic-vertical-layouts">
+    <div class="row match-height">
+
+        <div class="col-md-12 col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h1 class="card-title">Randevu Ekle</h1>
+                </div>
+                <div class="card-content">
+                    <div class="card-body">
+                        <form class="form form-vertical" method="post">
+                            <div class="form-body">
+                               
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="form-group has-icon-left">
+                                            <label for="first-name-icon">First Name</label>
+                                            <div class="position-relative">
+                                                <input type="text" asp-for="Randevuya_Gelen" class="form-control"required
+                                                        id="first-name-icon">
+                                                        <span class="text text-danger" asp-validation-for="Randevuya_Gelen"></span>
+                                                <div class="form-control-icon">
+                                                    <i class="bi bi-person"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <div class="form-group has-icon-left">
+                                            <label for="mobile-id-icon">Mobile</label>
+                                            <div class="position-relative">
+                                                <input type="text" asp-for="Telefon" class="form-control"required
+                                                        id="first-name-icon">
+                                                <div class="form-control-icon">
+                                                    <i class="bi bi-phone"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-group has-icon-left">
+                                            <label for="first-name-icon">Konu</label>
+                                            <div class="position-relative">
+                                                <input type="text" asp-for="Konu" class="form-control"required
+                                                        id="first-name-icon">
+                                                        <span class="text text-danger" asp-validation-for="Konu"></span>
+                                                <div class="form-control-icon">
+                                                    <i class="bi bi-person"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <label>Başlangıç Saati</label>
+                                        <fieldset class="form-group">
+                                            <input type="datetime-local" class="form-control" asp-for="Start_Time" required />
+                                            <span class="text text-danger" asp-validation-for="Start_Time"></span>
+                                        </fieldset>
+                                    </div>
+                                       <div class="col-6">
+                                        <label>Bitiş Saati</label>
+                                        <fieldset class="form-group">
+                                            <input type="datetime-local" class="form-control" asp-for="End_Time" required />
+                                            <span class="text text-danger" asp-validation-for="End_Time"></span>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-group ">
+                                            <label for="password-id-icon">Randevu Kaydeden </label>
+                                            <div class="position-relative">
+                                                <select class="form-select" asp-for="Randevu_KaydedenId" id="basicSelect" name="Randevu_KaydedenId" >  
+                                                  
+                                                       @foreach (var item in ViewBag.User)
+                                                {
+                                                        if (@item.UserId ==5 || @item.UserId ==6) //
+                                                        {
+                                                            <option value="@item.UserId">@item.Name</option> 
+                                                        }
+                                                        
+                                                        
+                                                    
+                                                }
+                                                }
+                                                </select>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label for="password-id-icon">Randevu Durumu</label>
+                                            <div class="position-relative">
+                                               <select class="form-select" asp-for="Randevu_DurumuId" id="basicSelect" name="Randevu_DurumuId" >  
+                                                    @foreach (var item in ViewBag.randur)
+                                                {
+                                                    <option value="@item.Value">@item.Text</option>
+                                                }
+                                                </select>
+                                               
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label for="password-id-icon">Ziyaret Edilen</label>
+                                            <div class="position-relative">
+                                                <select class="form-select" asp-for="Ziyaret_EdilenKisiId" id="basicSelect" name="Ziyaret_EdilenKisiId" >  
+                                                    @foreach (var item in ViewBag.User)
+                                                {
+                                                       
+                                                               if (@item.UserId ==4 || @item.UserId ==3 ) 
+                                                        {
+                                                            <option value="@item.UserId">@item.Name</option> 
+                                                        }
+                                                        
+                                                    
+                                                }
+                                                </select>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class='form-check'>
+                                            <div class="checkbox mt-2">
+                                                <input type="checkbox" id="remember-me-v" class='form-check-input'
+                                                       checked>
+                                                <label for="remember-me-v">Remember Me</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 d-flex justify-content-end">
+                                        <button type="submit" class="btn btn-primary me-1 mb-1">Submit</button>
+                                        <button type="reset"
+                                                class="btn btn-light-secondary me-1 mb-1">
+                                            Reset
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+
+    // Below code sets format to the
+    // datetimepicker having id as
+    // datetime
+    $('#datetime').datetimepicker({
+        format: 'yyyy-MM-dd hh:mm'
+    });
+</script>
+<!-- // Basic Vertical form layout section end -->

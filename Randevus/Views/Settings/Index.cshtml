@@ -1,0 +1,91 @@
+﻿@model Randevus.Models.UserEditViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_UILayout.cshtml";
+}
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profili Düzenle - DSİ Randevu</title>
+</head>
+
+
+<div class="row">
+    <div class="col-md-7 col-sm-12 mx-auto">
+        <div class="card pt-4">
+            <div class="card-body">
+                <div class="text-center mb-5">
+                    <img src="~/image/Dsi.png" height="48" class='mb-4'>
+                    <h3>Bilgileri Düzenle</h3>
+                </div>
+                <form method="post">
+                    <div class="row">
+                        <div class="col-md-6 col-12">
+                            <div class="form-group">
+                                <label for="first-name-column">İSMİNİZ</label>
+                                <input type="text" id="Name" class="form-control" name="Name" asp-for="Name"required>
+                                <span asp-validation-for="Name"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-12">
+                            <div class="form-group">
+                                <label for="last-name-column">Soy İSMİNİZ</label>
+                                <input type="text" id="SurName" class="form-control" name="SurName" asp-for="SurName">
+                                <span asp-validation-for="SurName"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-12">
+                            <div class="form-group position-relative has-icon-left">
+                                <div class="clearfix">
+                                    <label for="password">YENİ ŞİFRE</label>
+                                </div>
+                                <div class="position-relative">
+                                    <input type="password" class="form-control" id="Password" name="Password" asp-for="Password"required>
+                                    <span asp-validation-for="Password"></span>
+                                    <div class="form-control-icon">
+                                        <i data-feather="lock"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-12">
+                            <div class="form-group position-relative has-icon-left">
+                                <div class="clearfix">
+                                    <label for="password">YENİ ŞİFRE TEKRARI</label>
+                                </div>
+                                <div class="position-relative">
+                                    <input type="password" class="form-control" id="ConfirmPassword" name="ConfirmPassword" asp-for="ConfirmPassword "required>
+                                    <span asp-validation-for="ConfirmPassword"></span>
+                                    <div class="form-control-icon">
+                                        <i data-feather="lock"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <br />
+
+                    <div class="clearfix">
+                         <br />
+                        <button class="btn btn-primary float-end">Değişiklikleri Kaydet</button>  <br /> <br />
+                         <button class="btn btn-danger float-end">Sil</button> 
+                        
+                    </div>
+
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .form-group{margin-bottom:.7rem}.form-group label{font-size:.755rem;text-transform:uppercase;color:rgba(35,28,99,.7);font-weight:500}.form-group small{font-size:.7rem}.form-group.with-title{position:relative}.form-group.with-title label{position:absolute;top:0;left:0;padding:5px;font-size:.6rem;background-color:#e9ecef;width:100%;transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out}.form-group.with-title .form-control{padding-top:2rem}.form-group.with-title .form-control:focus~label{border-left:1px solid #5a8dee;border-top:1px solid #5a8dee;border-right:1px solid #5a8dee}
+</style>
+
+

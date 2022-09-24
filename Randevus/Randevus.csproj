@@ -1,0 +1,79 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="wwwroot\AdminLTE-3.2.0\**" />
+    <Content Remove="wwwroot\AdminLTE-3.2.0\**" />
+    <EmbeddedResource Remove="wwwroot\AdminLTE-3.2.0\**" />
+    <None Remove="wwwroot\AdminLTE-3.2.0\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\Partials\Partial_Footer.cshtml" />
+    <None Include="Views\Partials\Partial_Header.cshtml" />
+    <None Include="Views\Partials\Partial_SideMenu.cshtml" />
+    <None Include="wwwroot\voler\assets\images\favicon.svg" />
+    <None Include="wwwroot\voler\assets\images\logo.svg" />
+    <None Include="wwwroot\voler\assets\js\app.js" />
+    <None Include="wwwroot\voler\assets\js\feather-icons\feather.min.js" />
+    <None Include="wwwroot\voler\assets\js\main.js" />
+    <None Include="wwwroot\voler\assets\js\pages\dashboard.js" />
+    <None Include="wwwroot\voler\assets\js\pages\form-editor.js" />
+    <None Include="wwwroot\voler\assets\js\pages\ui-apexchart.js" />
+    <None Include="wwwroot\voler\assets\js\pages\ui-chartjs.js" />
+    <None Include="wwwroot\voler\assets\js\pages\widgets.js" />
+    <None Include="wwwroot\voler\assets\js\vendors.js" />
+    <None Include="wwwroot\voler\assets\vendors\apexcharts\apexcharts.min.js" />
+    <None Include="wwwroot\voler\assets\vendors\chartjs\Chart.min.js" />
+    <None Include="wwwroot\voler\assets\vendors\choices.js\choices.min.js" />
+    <None Include="wwwroot\voler\assets\vendors\dayjs\dayjs.min.js" />
+    <None Include="wwwroot\voler\assets\vendors\dragula\dragula.min.js" />
+    <None Include="wwwroot\voler\assets\vendors\perfect-scrollbar\perfect-scrollbar.min.js" />
+    <None Include="wwwroot\voler\assets\vendors\quill\quill.min.js" />
+    <None Include="wwwroot\voler\assets\vendors\simple-datatables\simple-datatables.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation.AspNetCore" Version="11.2.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.7">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.7">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.8" />
+    <PackageReference Include="Npgsql" Version="6.0.6" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="6.0.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BAL\BAL.csproj" />
+    <ProjectReference Include="..\DAL\DAL.csproj" />
+    <ProjectReference Include="..\Entity\Entity.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>
